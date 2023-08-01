@@ -1,7 +1,6 @@
  const express = require('express');
 const app = express();
 
-// Datos del servicio en formato JSON
 const serviceData =  {
   "rucardona16@gmail.com": {
     "847e318c098c40ed1b7a496c1f7734eb@qa-app.claus.co": [
@@ -67,14 +66,12 @@ const serviceData =  {
   }
 };
 
-// Endpoint para obtener la información filtrada por correo electrónico
 app.get('/api/data', (req, res) => {
   const email = req.query.email;
   if (!email) {
     return res.status(400).json({ error: 'Falta el parámetro de correo electrónico' });
   }
 
-  // Filtrar la información por correo electrónico
 const data = serviceData[email];
 if (!data) {
 return res.status(404).json({ error: 'Correo electrónico no encontrado' });
@@ -91,7 +88,6 @@ for (const key in data) {
 res.json(filteredData);
 });
 
-// Puerto en el que se ejecutará el servidor
 const port = 3000;
 
 // Iniciar el servidor
