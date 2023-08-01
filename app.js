@@ -77,7 +77,6 @@ if (!data) {
 return res.status(404).json({ error: 'Correo electrónico no encontrado' });
 }
 
-  // Obtener el último registro de cada typeEvent
 const filteredData = {};
 for (const key in data) {
     const events = data[key];
@@ -90,7 +89,6 @@ res.json(filteredData);
 
 const port = 3000;
 
-// Iniciar el servidor
 app.listen(port, () => {
 console.log(`Servidor API corriendo en http://localhost:${port}`);
 });
